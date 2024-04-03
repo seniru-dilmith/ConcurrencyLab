@@ -1,19 +1,12 @@
-import java.io.File;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
         Computer computer = new Computer();
         Printer printer = new Printer();
         computer.start();
+        Thread.sleep(50);
         printer.start();
-
-
-//        Printer printer2 = new Printer();
-//        printer2.start();
-//
-//        Printer printer3 = new Printer();
-//        printer3.start();
     }
 }

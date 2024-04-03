@@ -18,5 +18,7 @@ public class SharedQueue {
         return queue.poll();
     }
 
-
+    public static Queue<PrintJob> getQueue() {
+        return queue;
+    }
 }

@@ -7,7 +7,8 @@ public class Printer extends Thread{
 
     @Override
     public void run() {
-        this.executePrintJob(SharedQueue.getFront());
+        while (!SharedQueue.getQueue().isEmpty())
+            this.executePrintJob(SharedQueue.getFront());
     }
 
     public Printer() {
