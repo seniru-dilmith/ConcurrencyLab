@@ -7,13 +7,15 @@ public class SharedQueue {
     public static void addJobs(PrintJob printjob){
         if(queue.size()<5)
             queue.add(printjob);
+        else
+            throw new PrintJobOverloadException();
     }
 
-    public static PrintJob getFront(){
+    public synchronized static PrintJob getFront(){
         if(queue.peek() == null){
             throw new NoFrontElementInTheQueueExeption();
         }
-        return queue.peek();
+        return queue.poll();
     }
 
 

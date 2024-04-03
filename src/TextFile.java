@@ -5,19 +5,19 @@ import java.io.BufferedReader;
 public class TextFile {
     private File textFile;
 
-    public TextFile(File path){
-        this.textFile = path;
+    public TextFile(File file){
+        this.textFile = file;
     }
 
     private boolean isValidTextFile(File file) {
         String fileName = file.getName();
         return fileName.endsWith(".txt");
     }
-    public String ReadAFile() throws IOException {
+    public synchronized String ReadAFile() throws IOException {
         StringBuilder stringbuilder = new StringBuilder();
 
         if (!isValidTextFile(this.textFile)) {
-            throw new TypeNotSupportedException("Only .txt files are supported.");
+            throw new TypeNotSupportedException("Only '.txt' files are supported.");
         }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(this.textFile))){
