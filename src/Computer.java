@@ -4,13 +4,18 @@ public class Computer extends Thread{
 
     @Override
     public void run() {
-        File file1 = new File("abc.txt");
+        // testing files to check system
+
+        File file1 = new File(Thread.currentThread().getName()+"abc.txt");
+        //System.out.println(Thread.currentThread().getName()+"abc.txt");
         TextFile textFile1 = new TextFile(file1);
 
-        File file2 = new File("abd.txt");
+        File file2 = new File(Thread.currentThread().getName()+"abd.txt");
+        //System.out.println(Thread.currentThread().getName()+"abd.txt");
         TextFile textFile2 = new TextFile(file2);
 
-        File file3 = new File("abe.txt");
+        File file3 = new File(Thread.currentThread().getName()+"abe.txt");
+        //System.out.println(Thread.currentThread().getName()+"abe.txt");
         TextFile textFile3 = new TextFile(file3);
 
         PrintJob printJob1 = new PrintJob(111, textFile1);
@@ -30,16 +35,6 @@ public class Computer extends Thread{
             } catch (PrintJobOverloadException e) {
                 System.out.println(e.getMessage());
             }
-        }
-
-        public PrintJob sendToPrint() {
-            PrintJob job = null;
-            try {
-                job = SharedQueue.getFront();
-            } catch (NoFrontElementInTheQueueExeption e) {
-                System.out.println(e.getMessage());
-            }
-            return job;
         }
 
     }

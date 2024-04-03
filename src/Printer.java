@@ -7,8 +7,16 @@ public class Printer extends Thread{
 
     @Override
     public void run() {
-        while (!SharedQueue.getQueue().isEmpty())
-            this.executePrintJob(SharedQueue.getFront());
+        while (true) {
+            synchronized (SharedQueue.getQueue()) {
+                if (!SharedQueue.getQueue().isEmpty()) {
+                    executePrintJob(SharedQueue.getFront());
+                } else {
+                    // No more jobs to print, exit the loop
+                    break;
+                }
+            }
+        }
     }
 
     public Printer() {

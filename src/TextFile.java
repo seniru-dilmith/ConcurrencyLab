@@ -28,7 +28,7 @@ public class TextFile {
             }
          }
 
-        return stringbuilder.toString();
+        return "Printing... File : " + textFile.getName();
     }
 
 }

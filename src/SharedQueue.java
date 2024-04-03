@@ -4,7 +4,7 @@ import java.util.Queue;
 public class SharedQueue {
     private static Queue<PrintJob> queue = new LinkedList<>();
 
-    public static void addJobs(PrintJob printjob){
+    public synchronized static void addJobs(PrintJob printjob){
         if(queue.size()<5)
             queue.add(printjob);
         else
