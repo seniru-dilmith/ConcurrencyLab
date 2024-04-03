@@ -9,10 +9,13 @@ public class TextFile {
         this.textFile = file;
     }
 
+    // checking files for the validity (only text files are approved)
     private boolean isValidTextFile(File file) {
         String fileName = file.getName();
         return fileName.endsWith(".txt");
     }
+
+    // reading that file only if txt type
     public synchronized String ReadAFile() throws IOException {
         StringBuilder stringbuilder = new StringBuilder();
 

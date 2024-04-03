@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+// class for printer jobs
 public class PrintJob {
     private int ID;
     private TextFile file;
@@ -13,6 +14,7 @@ public class PrintJob {
         return ID;
     }
 
+    // getting file to be printed, if not available throws an exception
     public synchronized String getFileToPrint() {
         String data = null;
         try {

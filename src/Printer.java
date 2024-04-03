@@ -24,6 +24,7 @@ public class Printer extends Thread{
         count++;
     }
 
+    // executing printer jobs one by one since it is synchronized
     public synchronized void executePrintJob(PrintJob printJob) {
         var result = printJob.getFileToPrint();
         if (!Objects.equals(result, ""))
